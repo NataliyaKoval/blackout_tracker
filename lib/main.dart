@@ -1,4 +1,3 @@
-import 'package:blackout_tracker/data/logic.dart';
 import 'package:blackout_tracker/data/scheduled_task.dart';
 import 'package:blackout_tracker/presentation/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -51,14 +50,5 @@ class _MyAppState extends State<MyApp> {
       ),
       home: const HomeScreen(),
     );
-  }
-
-  void saveDataToPreferences() {
-    Logic logic = Logic();
-    logic.getAndSaveDateAndTime();
-    logic.getAndSaveBatteryLevel();
-    logic.getAndSaveChargingStatus();
-    logic.getAndSaveWifiConnectivityState();
-    logic.getAndSaveInternetConnectivityState();
   }
 }

@@ -10,6 +10,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   Logic logic = Logic();
+  String dateTime = '';
   String batteryLevel = '';
   String chargingStatus = '';
   String wifiConnectivityState = '';
@@ -22,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void getData() async {
+    dateTime = await logic.getAndSaveDateAndTime();
     batteryLevel = (await logic.getAndSaveBatteryLevel())!;
     chargingStatus = await logic.getAndSaveChargingStatus();
     wifiConnectivityState = await logic.getAndSaveWifiConnectivityState();
@@ -42,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text('Date and Time: ', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),),
-              Text(logic.getAndSaveDateAndTime(), style: const TextStyle(fontSize: 20),),
+              Text(dateTime, style: const TextStyle(fontSize: 20),),
               const SizedBox(height: 20,),
               const Text('Battery Level: ', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),),
               Text(batteryLevel, style: const TextStyle(fontSize: 20),),

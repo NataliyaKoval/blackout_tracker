@@ -6,22 +6,22 @@ class Logic {
   AppData appData = AppData();
   AppSharedPreferences appSharedPreferences = AppSharedPreferences();
 
-  String getAndSaveDateAndTime() {
+  Future<String> getAndSaveDateAndTime() async {
     DateTime dateTime = appData.getDateAndTime();
     String formattedDate = DateFormat('yyyy-MM-dd – kk:mm').format(dateTime);
-    appSharedPreferences.setDateTime(formattedDate);
+    await appSharedPreferences.setDateTime(formattedDate);
     return formattedDate;
   }
 
   Future<String?> getAndSaveBatteryLevel() async {
     int? batteryLevel = await appData.getBatteryLevel();
-    appSharedPreferences.setBatteryLevel(batteryLevel);
+    await appSharedPreferences.setBatteryLevel(batteryLevel);
     return batteryLevel.toString();
   }
 
   Future<String> getAndSaveChargingStatus() async {
     String? chargingStatus = await appData.getChargingStatus();
-    appSharedPreferences.setChargingStatus(chargingStatus);
+    await appSharedPreferences.setChargingStatus(chargingStatus);
     switch (chargingStatus) {
       case 'ChargingStatus.Unknown':
         return "BATTERY: UNKNOWN!";
@@ -38,13 +38,13 @@ class Logic {
 
   Future<String> getAndSaveWifiConnectivityState() async {
     bool isConnectedToWifi = await appData.checkWifiConnectivityState();
-    appSharedPreferences.setWifiConnectivityState(isConnectedToWifi);
+    await appSharedPreferences.setWifiConnectivityState(isConnectedToWifi);
     return isConnectedToWifi ? 'Connected' : 'No';
   }
 
   Future<String> getAndSaveInternetConnectivityState() async {
     bool isConnectionSuccessful = await appData.tryConnection();
-    appSharedPreferences.setInternetConnectivityState(isConnectionSuccessful);
+    await appSharedPreferences.setInternetConnectivityState(isConnectionSuccessful);
     return isConnectionSuccessful ? 'Connected' : 'No';
   }
 }
