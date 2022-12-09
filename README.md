@@ -1,16 +1,12 @@
-# blackout_tracker
+# Blackout Tracker
 
-A new Flutter project.
+A Flutter project that saves the following information once an hour:
+- date and time,
+- battery level,
+- charging status,
+- wifi connectivity state,
+- internet connectivity state.
 
-## Getting Started
+Information is stored in a persistent storage (sharedpreferences) and displayed on the screen.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![photo_2022-12-09_19-04-17](https://user-images.githubusercontent.com/69919727/206765247-1f7ddb53-73ef-48ad-8bcf-394741e0da42.jpg)
